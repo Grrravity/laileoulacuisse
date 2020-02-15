@@ -103,7 +103,7 @@ class Body extends StatelessWidget {
                     child:
                     RaisedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, "/Livingroom");
+                        //Navigator.pushNamed(context, "/Livingroom");
                       },
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: deviceWidth*0.005, vertical: deviceHeight*0.005),

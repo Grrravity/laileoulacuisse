@@ -3,14 +3,14 @@ import 'dart:convert';
 
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
-import 'package:quickjobs_flu/models/AccessToken.dart';
+import 'package:laile_ou_la_cuisse/models/AccessToken.dart';
 
-import 'package:quickjobs_flu/models/User.dart';
-import 'package:quickjobs_flu/models/posts/RefreshPostModel.dart';
-import 'package:quickjobs_flu/screens/authentication/Authentication-event.dart';
-import 'package:quickjobs_flu/screens/authentication/Authentication-state.dart';
+import 'package:laile_ou_la_cuisse/models/User.dart';
+import 'package:laile_ou_la_cuisse/models/posts/RefreshPostModel.dart';
+import 'package:laile_ou_la_cuisse/blocs/authentication/Authentication-event.dart';
+import 'package:laile_ou_la_cuisse/blocs/authentication/Authentication-state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:quickjobs_flu/services/templateApi.dart';
+import 'package:laile_ou_la_cuisse/services/templateApi.dart';
 
 // Authentication Bloc which handles the auth state app wide
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
@@ -102,7 +102,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
         // Saving the token
         savePreferences(pref, accessToken);
 
-        await user.persistToken(event.accessToken.access_token);
+        await user.persistUser(event.accessToken.access_token);
 
         yield AuthenticationAuthenticated();
 
@@ -124,7 +124,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       if (event is LoggedOut) {
 
         yield AuthenticationLoading();
-        await user.deleteToken();
+        await user.deleteUser();
         yield AuthenticationUninitialized();
 
         // Logs

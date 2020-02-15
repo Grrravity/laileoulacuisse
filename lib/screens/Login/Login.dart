@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:laile_ou_la_cuisse/blocs/authentication/Authentication-bloc.dart';
+import 'package:laile_ou_la_cuisse/models/User.dart';
 import 'package:laile_ou_la_cuisse/screens/Login/components/body.dart';
 import 'package:laile_ou_la_cuisse/screens/Login/Login-bloc.dart';
-import 'package:laile_ou_la_cuisse/bloc/bloc-prov.dart';
 
 class Login extends StatefulWidget {
+  final User user;
+
+  Login({
+    Key key,
+    @required this.user
+})
+      : assert (user != null),
+      super(key:key);
+
+
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-  LoginBloc loginBloc;
-
-  @override
-  void initState() {
-    super.initState();
-
-    loginBloc = LoginBloc();
-  }
-
-  @override
-  void dispose() {
-    loginBloc.dispose();
-
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      bloc: LoginBloc(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Login Screen"),
-        ),
-        body: Body(),
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) {
+          return LoginBloc(
+            user: widget.user,
+            authenticationBloc: BlocProvider.of<AuthenticationBloc>(context),
+          );
+        },
+        child: Body(),
       ),
     );
   }

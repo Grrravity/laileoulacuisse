@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:quickjobs_flu/screens/first/First-event.dart';
-import 'package:quickjobs_flu/screens/first/First-state.dart';
+import 'package:laile_ou_la_cuisse/screens/First/First-event.dart';
+import 'package:laile_ou_la_cuisse/screens/First/First-state.dart';
 
 class FirstBloc extends Bloc<FirstEvent, FirstState> {
   FirstBloc();

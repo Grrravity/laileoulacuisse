@@ -5,16 +5,16 @@ import 'package:laile_ou_la_cuisse/models/contact.dart';
 import 'package:flutter/material.dart';
 import 'package:laile_ou_la_cuisse/bloc/bloc.dart';
 
-class ParametersBloc extends Bloc {
+class SettingsBloc extends Bloc {
   StreamSubscription _audioPlayerStateSubscription;
 
-  Stream<String> get parameters => _parametersSubject.stream;
-  Sink<String> get parametersSink => _parametersSubject.sink;
-  final StreamController<String> _parametersSubject = StreamController<String>();
+  Stream<String> get settings => _settingsSubject.stream;
+  Sink<String> get settingsSink => _settingsSubject.sink;
+  final StreamController<String> _settingsSubject = StreamController<String>();
 
-  ParametersBloc();
+  SettingsBloc();
 
   void dispose() {
-    _parametersSubject.close();
+    _settingsSubject.close();
   }
 }

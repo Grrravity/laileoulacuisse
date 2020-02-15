@@ -5,60 +5,27 @@ class User {
     @required String usermail,
     @required String password,
     @required String provider,
+    String firstName, lastName, telephone,
   }) async {
     await Future.delayed(Duration(seconds: 1));
 
     // Pourquoi une string 'token' ?
-    return 'token';
+    return 'user';
   }
 
-  Future<void> deleteToken() async {
+  Future<void> deleteUser() async {
     /// delete from keystore/keychain
     await Future.delayed(Duration(seconds: 1));
     return;
   }
 
-  Future<void> persistToken(String token) async {
+  Future<void> persistUser(String token) async {
     /// write to keystore/keychain
     await Future.delayed(Duration(seconds: 1));
     return;
   }
 
-  Future<bool> hasToken() async {
-    /// read from keystore/keychain
-    await Future.delayed(Duration(seconds: 1));
-    return false;
-  }
-
-}
-
-class UserRegister{
-  Future<String>authRegister({
-    @required String firstName,
-    @required String lastName,
-    @required String email,
-    @required String telephone,
-    @required String password,
-    @required String passwordRepeat,
-    @required String provider,
-  }) async {
-    await Future.delayed(Duration(seconds: 1));
-    return 'token';
-  }
-
-  Future<void> deleteRegisterToken() async {
-    /// delete from keystore/keychain
-    await Future.delayed(Duration(seconds: 1));
-    return;
-  }
-
-  Future<void> persistRegisterToken(String token) async {
-    /// write to keystore/keychain
-    await Future.delayed(Duration(seconds: 1));
-    return;
-  }
-
-  Future<bool> hasRegisterToken() async {
+  Future<bool> hasUser() async {
     /// read from keystore/keychain
     await Future.delayed(Duration(seconds: 1));
     return false;

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:quickjobs_flu/screens/dashboard/Dashboard-event.dart';
-import 'package:quickjobs_flu/screens/dashboard/Dashboard-state.dart';
+import 'package:laile_ou_la_cuisse/screens/Dashboard/Dashboard-event.dart';
+import 'package:laile_ou_la_cuisse/screens/Dashboard/Dashboard-state.dart';
 
 class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   DashboardBloc();

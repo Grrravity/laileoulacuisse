@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:laile_ou_la_cuisse/screens/Receipts/components/body.dart';
-import 'package:laile_ou_la_cuisse/screens/Receipts/Receipts-bloc.dart';
-import 'package:laile_ou_la_cuisse/bloc/bloc-prov.dart';
+import 'package:laile_ou_la_cuisse/screens/RecipeDetail/components/body.dart';
+import 'package:laile_ou_la_cuisse/screens/RecipeDetail/RecipeDetail-bloc.dart';
 
-class Receipts extends StatefulWidget {
+class RecipeDetail extends StatefulWidget {
   @override
-  _ReceiptsState createState() => _ReceiptsState();
+  _RecipeDetailState createState() => _RecipeDetailState();
 }
 
-class _ReceiptsState extends State<Receipts> {
-  ReceiptsBloc receiptsBloc;
+class _RecipeDetailState extends State<RecipeDetail> {
+  RecipeDetailBloc recipeDetailBloc;
 
   @override
   void initState() {
     super.initState();
 
-    receiptsBloc = ReceiptsBloc();
+    recipeDetailBloc = RecipeDetailBloc();
   }
 
   @override
   void dispose() {
-    receiptsBloc.dispose();
+    recipeDetailBloc.dispose();
 
     super.dispose();
   }
@@ -28,10 +27,10 @@ class _ReceiptsState extends State<Receipts> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      bloc: ReceiptsBloc(),
+      bloc: RecipeDetailBloc(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Receipts Screen"),
+          title: Text("RecipeDetail Screen"),
         ),
         body: Body(),
         bottomNavigationBar: BottomNavigationBar(

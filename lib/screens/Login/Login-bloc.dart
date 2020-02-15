@@ -5,18 +5,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
 import 'package:bloc/bloc.dart';
-import 'package:quickjobs_flu/models/AccessToken.dart';
-import 'package:quickjobs_flu/models/ApiResponseBody.dart';
+import 'package:laile_ou_la_cuisse/models/AccessToken.dart';
+import 'package:laile_ou_la_cuisse/models/ApiResponseBody.dart';
 
-import 'package:quickjobs_flu/models/User.dart';
-import 'package:quickjobs_flu/models/posts/LoginPostModel.dart';
+import 'package:laile_ou_la_cuisse/models/User.dart';
+import 'package:laile_ou_la_cuisse/models/posts/LoginPostModel.dart';
 
-import 'package:quickjobs_flu/screens/authentication/Authentication-bloc.dart';
-import 'package:quickjobs_flu/screens/authentication/Authentication-event.dart';
-import 'package:quickjobs_flu/screens/dashboard/Dashboard.dart';
-import 'package:quickjobs_flu/screens/login/Login-event.dart';
-import 'package:quickjobs_flu/screens/login/Login-state.dart';
-import 'package:quickjobs_flu/services/templateApi.dart';
+import 'package:laile_ou_la_cuisse/blocs/authentication/Authentication-bloc.dart';
+import 'package:laile_ou_la_cuisse/blocs/authentication/Authentication-event.dart';
+import 'package:laile_ou_la_cuisse/screens/Dashboard/Dashboard.dart';
+import 'package:laile_ou_la_cuisse/screens/Login/Login-event.dart';
+import 'package:laile_ou_la_cuisse/screens/Login/Login-state.dart';
+import 'package:laile_ou_la_cuisse/services/templateApi.dart';
 
 // Bloc class that receives the different Login events
 // It will handle the logic and output a state that will redefine the login UI

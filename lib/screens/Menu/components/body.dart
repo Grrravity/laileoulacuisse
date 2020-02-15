@@ -64,7 +64,7 @@ class Body extends StatelessWidget {
               ),
             ),
 
-            // Login Btn
+            // Menu Btn
             Expanded(
               flex: 4,
               child: Container(
@@ -72,7 +72,7 @@ class Body extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(0, 0, 0, 6),
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/Login");
+                    Navigator.pushNamed(context, "/Menu");
                   },
                   child: Text(
                     'Me connecter',

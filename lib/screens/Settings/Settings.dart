@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:laile_ou_la_cuisse/screens/Parameters/components/body.dart';
-import 'package:laile_ou_la_cuisse/screens/Parameters/Parameters-bloc.dart';
+import 'package:laile_ou_la_cuisse/screens/Settings/components/body.dart';
+import 'package:laile_ou_la_cuisse/screens/Settings/Settings-bloc.dart';
 import 'package:laile_ou_la_cuisse/bloc/bloc-prov.dart';
 
-class Parameters extends StatefulWidget {
+class Settings extends StatefulWidget {
   @override
-  _ParametersState createState() => _ParametersState();
+  _SettingsState createState() => _SettingsState();
 }
 
-class _ParametersState extends State<Parameters> {
-  ParametersBloc parametersBloc;
+class _SettingsState extends State<Settings> {
+  SettingsBloc settingsBloc;
 
   @override
   void initState() {
     super.initState();
 
-    parametersBloc = ParametersBloc();
+    settingsBloc = SettingsBloc();
   }
 
   @override
   void dispose() {
-    parametersBloc.dispose();
+    settingsBloc.dispose();
 
     super.dispose();
   }
@@ -28,10 +28,10 @@ class _ParametersState extends State<Parameters> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      bloc: ParametersBloc(),
+      bloc: SettingsBloc(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Parameters Screen"),
+          title: Text("Settings Screen"),
         ),
         body: Body(),
       ),

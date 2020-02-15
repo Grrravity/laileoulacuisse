@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:laile_ou_la_cuisse/screens/Menu/Menu-bloc.dart';
 import 'package:laile_ou_la_cuisse/screens/Menu/components/body.dart';
-import 'package:laile_ou_la_cuisse/bloc/bloc-prov.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -9,52 +10,64 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
-  MenuBloc menuBloc;
-
-  @override
-  void initState() {
-    super.initState();
-
-    menuBloc = MenuBloc();
-  }
-
-  @override
-  void dispose() {
-    menuBloc.dispose();
-
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      bloc: MenuBloc(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Menu Screen"),
-        ),
-        body: Body(),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 2,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.kitchen),
-              title: Text('Salon'),
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp,]);
+    return Scaffold(
+      body: BlocProvider<MenuBloc>(
+        create: (context) {
+          return MenuBloc();
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            title: Center(
+              child: Text(
+                "L'aile ou la cuisse ?",
+                textAlign: TextAlign.center,
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.room_service),
-              title: Text('Recettes'),
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Theme
+                          .of(context)
+                          .primaryColorLight, Theme
+                          .of(context)
+                          .primaryColor
+                      ])),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.library_books),
-              title: Text('Menu'),
+            leading: Icon(
+              Icons.fastfood,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              title: Text('Liste de course'),
-            ),
-          ],
-
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.account_circle),
+                onPressed: () { //Navigator.pushNamed(context, "/Livingroom/settings");
+                },
+              ),
+            ],
+          ),
+          body: Body(),
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: 0,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                title: Text('Salon'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.room_service),
+                title: Text('Recettes'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.library_books),
+                title: Text('Menu'),
+              ),
+            ],
+            showUnselectedLabels: true,
+          ),
         ),
       ),
     );

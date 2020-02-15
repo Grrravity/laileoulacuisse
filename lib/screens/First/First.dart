@@ -1,36 +1,31 @@
+//flutter
 import 'package:flutter/material.dart';
-import 'package:laile_ou_la_cuisse/screens/Vestibule/components/body.dart';
-import 'package:laile_ou_la_cuisse/screens/Vestibule/Vestibule-bloc.dart';
-import 'package:laile_ou_la_cuisse/bloc/bloc-prov.dart';
 
-class Vestibule extends StatefulWidget {
+//library
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+//others
+import 'package:laile_ou_la_cuisse/screens/First/First-bloc.dart';
+import 'package:laile_ou_la_cuisse/screens/First/components/body.dart';
+
+
+class First extends StatefulWidget {
   @override
-  _VestibuleState createState() => _VestibuleState();
+  _FirstState createState() => _FirstState();
 }
 
-class _VestibuleState extends State<Vestibule> {
-  VestibuleBloc vestibuleBloc;
-
-  @override
-  void initState() {
-    super.initState();
-
-    vestibuleBloc = VestibuleBloc();
-  }
-
-  @override
-  void dispose() {
-    vestibuleBloc.dispose();
-
-    super.dispose();
-  }
+class _FirstState extends State<First> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      bloc: VestibuleBloc(),
-      child: Scaffold(
-        body: Body(),
+    return Scaffold(
+      body: BlocProvider<FirstBloc>(
+        create: (context) {
+          return FirstBloc();
+        },
+        child: Scaffold(
+          body: Body(),
+        ),
       ),
     );
   }

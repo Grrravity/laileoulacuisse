@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
-import 'package:quickjobs_flu/models/AccessToken.dart';
+import 'package:laile_ou_la_cuisse/models/AccessToken.dart';
 
 abstract class AuthenticationEvent extends Equatable {
   const AuthenticationEvent();
